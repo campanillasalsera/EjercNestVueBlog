@@ -31,6 +31,7 @@ import { onMounted, ref } from 'vue';
     updatedAt: number;
     }
 
+    
 
     //para que cargue los posts una vez que el componente esté montado en el DOM
     onMounted(async () => {
@@ -46,6 +47,7 @@ import { onMounted, ref } from 'vue';
             if (!response.ok) {
                 throw new Error('Error en la respuesta')
             }
+            
             return response.json();
         })
         .catch((error) => {
