@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import PostLister from '../components/PostLister.vue'
 import LoginUser from '../components/LoginUser.vue'
+import PostTemplate from '@/components/PostTemplate.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -34,7 +35,13 @@ const router = createRouter({
         name: 'login',
         component: LoginUser
       },
-  ]
+      {
+        path: '/post/:id',
+        name: 'post',
+        component: PostTemplate,
+        props: {shouldGetData: true}
+      }
+    ]
 })
 
 export default router

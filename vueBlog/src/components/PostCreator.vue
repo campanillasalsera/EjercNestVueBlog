@@ -2,6 +2,10 @@
 import { ref } from 'vue';
 
 
+//Evento para poder refrescar la página cada vez que se cree un post
+   const emit = defineEmits(['postCreated']);
+
+
     function crearPost() {
         fetch('http://localhost:3000/post', {
             method: "POST",
@@ -12,7 +16,9 @@ import { ref } from 'vue';
             headers: {"Content-Type": "application/json"},
             credentials: 'include'
         })
-        .then(() => { alert("Post creado") })
+        .then(() => { 
+            alert("Post creado")
+            emit('postCreated') })
         .catch((e) => {
             console.error(e);
             alert("Ha ocurrido un error")
